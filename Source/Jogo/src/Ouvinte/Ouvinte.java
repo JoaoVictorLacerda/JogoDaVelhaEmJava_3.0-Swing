@@ -116,11 +116,12 @@ public class Ouvinte implements MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-
+        this.tela.setCursor(Cursor.HAND_CURSOR);
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
+        this.tela.setCursor(Cursor.DEFAULT_CURSOR);
 
     }
 }
