@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="DynamicLayout">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/DynamicLayout.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

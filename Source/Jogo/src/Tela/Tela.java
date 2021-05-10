@@ -1,5 +1,6 @@
 package Tela;
 
+import DynamicLayout.DynamicLayout;
 import Ouvinte.Ouvinte;
 import Tela.Background.JPanelBackgground;
 
@@ -22,31 +23,35 @@ public class Tela extends JFrame {
 
     public Tela(){
         this.setSize(500,400);
-        this.setResizable(false);
-        this.setLayout(new BorderLayout());
-        this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.addLabels();
+        this.setResizable(true);
+        this.setLayout(new DynamicLayout(500,400));
         this.addJPanel();
+        this.addlabel();
         this.addJbutton();
         this.addMatriz();
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
     public void addJPanel(){
         this.painel = new JPanelBackgground();
-        painel.setLayout(null);
-        this.add(painel,BorderLayout.CENTER);
+        painel.setBounds(0,50,500,313);
+        painel.setLayout(new DynamicLayout(500,313));
+        this.add(painel);
+    }
+    public void addlabel(){
+        this.label.setBounds(0,0,500,50);
+        this.add(label);
     }
     public void addMatriz(){
         Ouvinte ouvinte = new Ouvinte(this);
         Font font = new Font("Arial",Font.BOLD,40);
         Point []points = {
-                new Point(20,20), new Point(159,20), new Point(295,20),
-                new Point(20,120),new Point(159,120),new Point(295,120),
-                new Point(20,217), new Point(159,217),new Point(295,217)
+                new Point(30,20), new Point(184,20), new Point(330,20),
+                new Point(30,120),new Point(184,120),new Point(330,120),
+                new Point(30,217), new Point(184,217),new Point(330,217)
                 };
-        Dimension dimension = new Dimension(120,80);
-
+        Dimension dimension = new Dimension(125,80);
         for(int i =0;i<9;i++){
             BUTTONS[i].setLocation(points[i]);
             BUTTONS[i].setSize(dimension);
@@ -54,19 +59,6 @@ public class Tela extends JFrame {
             BUTTONS[i].addMouseListener(ouvinte);
             this.painel.add(BUTTONS[i]);
         }
-    }
-    public void addLabels(){
-        Font font = new Font("Arial",Font.BOLD,20);
-
-        JLabel espaco1 = new JLabel("      ");
-        JLabel espaco2 = new JLabel("      ");
-
-
-        this.label.setFont(font);
-        this.add(this.label,BorderLayout.NORTH);
-        this.add(espaco1,BorderLayout.WEST);
-        this.add(espaco2,BorderLayout.EAST);
-
     }
     public void addJbutton(){
         JButton button = new JButton("NOVO JOGO");
@@ -77,6 +69,7 @@ public class Tela extends JFrame {
                 new Tela();
             }
         });
+        button.setBounds(0,360,500,50);
         this.add(button, BorderLayout.SOUTH);
     }
 
