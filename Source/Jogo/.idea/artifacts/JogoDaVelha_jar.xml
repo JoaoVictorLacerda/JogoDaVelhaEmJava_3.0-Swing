@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/JogoDaVelha_jar</output-path>
     <root id="archive" name="JogoDaVelha.jar">
       <element id="module-output" name="JogoDaVelha" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/DynamicLayout.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
